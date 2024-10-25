@@ -3,11 +3,19 @@ import UseData from "../context/SharedData";
 import { FaBox } from "react-icons/fa";
 import { SiIconfinder } from "react-icons/si";
 import delay from "../lib/Delay";
+import { IoArrowBackCircleSharp } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 
 export default function Playground() {
     const {total, guess, setGuess, isGuessing,memory, setIsGuessing,setMemory} = UseData()
     // const memory = JSON.parse(localStorage.getItem("guess"))
+    const navigate = useNavigate()
     
+    const handleback = ()=>{
+        navigate(-1)
+        setMemory([])
+        setGuess('')
+    }
 
     const handleGuess = async()=>{
         setIsGuessing(true)
@@ -63,6 +71,10 @@ export default function Playground() {
                 Guess👀
             </div>
         </div>
+        <IoArrowBackCircleSharp
+        onClick={handleback}
+         size={36}
+          className="cursor-pointer"/>
         
     </Layout>
   )
