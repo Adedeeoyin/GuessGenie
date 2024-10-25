@@ -38,7 +38,7 @@ export default function Playground() {
                     </div>
                 {guess && <span>{guess}</span>}
             </div>
-            <div className="text-black flex p-1 flex-wrap">
+            <div className="text-black flex gap-1 p-1 flex-wrap">
                 {
                     Array(+total)
                     .fill('box')
